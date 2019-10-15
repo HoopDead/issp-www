@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html lang = "pl">
+	<head>
+		<title>Zadanie 4</title>
+		<meta charset="utf-8">
+		<style>
+			table.A
+			{
+				border-collapse: collapse;
+				font-size: 10px;
+				font-family: helvetica;
+				text-decoration: none;
+				color: orange;
+			}
+			table.A th
+			{
+				margin: 0;
+				border: 1px dashed #000;
+				padding: 20px;
+			}
+			table.A tr:nth-child(3n+1), table.A th:nth-child(2n+1)
+			{
+				background-color: #ededed;
+			}
+			
+			table.B
+			{
+				font-size: 18px;
+				font-family: arial;
+				font-style: italic;
+				text-decoration: underline;
+				color: white;
+				border: 1px solid red;
+			}
+			
+			table.B th
+			{
+				padding: 25px;
+			}
+			table.B tr:nth-child(2n+1)
+			{
+				background-color: crimson;
+			}
+			table.B tr:nth-child(2n)
+			{
+				background-color: orange;
+			}
+			
+			caption
+			{
+				color: #000;
+				font-size: 25px;
+			}
+		</style>
+	</head>
+	<body>
+		<table class = "A">
+			<caption>Test</caption>
+			<tr><th>Numer</th><th>Imie</th><th>Nazwisko</th></tr>
+			<tr><th>1</th><th>Jan</th><th>Nowak</th></tr>
+			<tr><th>2</th><th>Marek</th><th>Kowalski</th></tr>
+			<tr><th>3</th><th>Marek</th><th>Markowski</th></tr>
+		</table>
+		<table class = "B">
+			<caption>ASD</caption>
+			<tr><th>Pierwszy bok</th><th>Drugi bok</th><th>Wynik</th></tr>
+			<tr><th>4</th><th>5</th><th>20</th></tr>
+			<tr><th>7</th><th>8</th><th>56</th></tr>
+			<tr><th>10</th><th>11</th><th>110</th></tr>
+		</table>
+	</body>
+
+</html>

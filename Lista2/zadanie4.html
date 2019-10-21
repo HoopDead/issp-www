@@ -7,7 +7,7 @@
 			table.A
 			{
 				border-collapse: collapse;
-				font-size: 10px;
+				font-size: 15px;
 				font-family: helvetica;
 				text-decoration: none;
 				color: orange;
@@ -18,7 +18,7 @@
 				border: 1px dashed #000;
 				padding: 20px;
 			}
-			table.A tr:nth-child(3n+1), table.A th:nth-child(2n+1)
+			table.A tr:nth-child(3n+1)
 			{
 				background-color: #ededed;
 			}
@@ -48,6 +48,7 @@
 			
 			caption
 			{
+				margin: 10px;
 				color: #000;
 				font-size: 25px;
 			}
@@ -55,14 +56,15 @@
 	</head>
 	<body>
 		<table class = "A">
-			<caption>Test</caption>
+			<caption>Lista gości</caption>
 			<tr><th>Numer</th><th>Imie</th><th>Nazwisko</th></tr>
 			<tr><th>1</th><th>Jan</th><th>Nowak</th></tr>
 			<tr><th>2</th><th>Marek</th><th>Kowalski</th></tr>
 			<tr><th>3</th><th>Marek</th><th>Markowski</th></tr>
 		</table>
+		<hr>
 		<table class = "B">
-			<caption>ASD</caption>
+			<caption>Pole prostokąta</caption>
 			<tr><th>Pierwszy bok</th><th>Drugi bok</th><th>Wynik</th></tr>
 			<tr><th>4</th><th>5</th><th>20</th></tr>
 			<tr><th>7</th><th>8</th><th>56</th></tr>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+    <head>
+        <meta charset="utf-8">
+        <title>Zadanie 7</title>
+        <style>
+            body
+            {
+                height: 100%;
+                width: 100%;
+                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+            #kalkulator
+            {
+                position: absolute;
+                margin: 0;
+                top: 30%;
+                left: 50%;
+            }
+            #kalkulator-input
+            {
+                width: 240px;
+                border-radius: 1rem;
+                text-align: center;
+            }
+            #kalkualtor-clear
+            {
+                margin-top: 15px;
+                width: 100%;
+                border-radius: 1rem;
+            }
+            #kalkulator-wynik
+            {
+                width: 100%;
+                margin-top: 15px;
+                text-align: center;
+            }
+            #wynik
+            {
+                border: 1px solid #000;
+                padding: 20px;
+            }
+            #kalkulator-header
+            {
+                width: 100%;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div id = "kalkulator">
+            <h2 id = "kalkulator-header">Kalkulator</h2>
+            <input id = "kalkulator-input" onchange = "oblicz(this.value)" type = "text"></input><br>
+            <button id = "kalkualtor-clear" onclick = "location=location">Wyczyść</button><br>
+            <div id = "kalkulator-wynik">Wynik: <p id = "wynik"></p></div>
+        </div>
+    </body>
+
+    <script>
+        var wynik = document.getElementById("wynik");
+        var oblicz = (arg) =>
+        {
+            wynik.innerHTML = eval(arg);
+        }
+    </script>
+
+
+</html>

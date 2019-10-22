@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+
+<html lang = "pl">
+<head>
+	<meta charset = "utf-8">
+	<title>Zadanie 2</title>
+	<style>
+		p
+		{
+			background-color: pink;
+			border: 1px solid green;
+		}
+	</style>
+</head>
+<body>
+	<p onclick="klik(this)">Jeszcze nie kliknięty.</p>
+
+<script>
+	var clicks = 0;
+	function klik(elem) {
+		clicks++;
+		elem.innerHTML = "Kliknięty po raz " + clicks + ".";
+	}
+	</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html lang = "pl">
+<head>
+	<meta charset = "utf-8">
+	<title>Zadanie 1</title>
+	<style>
+		img
+		{
+			width: 32px;
+			height: 32px;
+		}
+	</style>
+</head>
+<body>
+	<button onclick="funA()"> Witaj</button>
+	<button onclick="funB1()"> 1 .. 100</button>
+	<button onclick="funB2()"> 1 .. n</button>
+	<button onclick = "funB3()">Wielokrotnosci</button>
+	<button onclick = "funC1()">Ukryj</button>
+	<button onclick = "funC2()">Pokaz</button>
+	<button onclick = "funD()">Losowe miejsce</button>
+	<div id="ramka">...</div>
+	<img id="foton" src='foton.png'/>
+	n = <input name="n" value=55 type=number>
+	<script>
+		var ramka = document.getElementById("ramka"); 		
+		function funA()
+		{
+			ramka.innerHTML = "Dzien Dobry!";
+		}
+		
+		function funB1()
+		{
+			ramka.innerHTML = "";
+			for(let i = 0; i < 100; i++)
+			{
+				ramka.innerHTML += i+1 + " ";
+			}
+		}
+		
+		function funB2()
+		{
+			ramka.innerHTML = "";
+			var input = document.querySelector("input").value;
+			for(let i = 0; i < input; i++)
+			{
+				ramka.innerHTML += i+1 + " ";
+			}	
+		}
+		
+		function funB3()
+		{
+			ramka.innerHTML = "";
+			var input = document.querySelector("input").value;
+			for(let i = 0; i <= 100; i++)
+			{
+				ramka.innerHTML += String(i) + "*" + input + " = " +i*Number(input) + "<br>";
+			}
+		} 
+		function funC1()
+		{
+			ramka.style.display = "none";
+		}
+		function funC2()
+		{
+			ramka.style.display = "block";
+		}
+		function funD()
+		{
+			var img = document.querySelector("img");
+			img.style.marginLeft = Math.random() * 100 + "vw";
+			img.style.marginTop = Math.random() * 100 + "vh";
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang = "pl">
+    <head>
+        <meta charset = "utf-8">
+        <title>Zadanie 4</title>
+        <style>
+            p:nth-child(5n)
+            {
+                color: yellow;
+                background-color: #000;
+            }
+        </style>
+    </head>
+    <body>
+        <button onclick = "clean()">OK</button>
+        <button onclick = "change()">Zmien tlo i kolor</button>
+        <button onclick = "copy()">Kopiuj</button>
+        <p>Uno</p>
+        <p>Due</p>
+        <p>Tre</p>
+        <p>Quatro</p>
+        <p>Cinque</p>
+        <p>Sei</p>
+        <p>Sette</p>
+        <p>Otto</p>
+        <p>Nove</p>
+        <p>Dieci</p>
+        <p>Undici</p>
+        <p>Dodici</p>
+        <p>Tredici</p>
+        <p>Quattordici</p>
+        <p>Quindici</p>
+    </body>
+    <script>
+        var position = 1;
+        function clean()
+        {
+            for(var i = 0; i < para.length; i++)
+            {
+                para[i].style.backgroundColor = "#fff";
+                para[i].style.color = "#000";
+            }
+        }
+        function change()
+        {
+            for(var i = 2; i < para.length; i = i + 3)
+            {
+                para[i].style.backgroundColor = "pink";
+                para[i].style.color = "blue";
+            }
+        }
+        function copy()
+        {
+            var para = document.querySelectorAll("p");
+            var cln = para[para.length-15].cloneNode(true);
+            document.body.appendChild(cln);
+        }
+    </script>
+</html>

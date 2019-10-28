@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang = "pl">
+    <head>
+        <meta charset = "utf-8">
+        <title>Zadanie 3</title>
+    </head>
+    <style>
+        img
+        {
+            width: 100px;
+            left: 48%;
+            top: 46%;
+            position: absolute;
+        }
+        button
+        {
+            position: absolute;
+        }
+        #but1
+        {
+            top: 0%;
+            left: 50%;
+        }
+        #but2
+        {
+            top: 50%;
+        }
+        #but3
+        {
+            top: 50%;
+            right: 0%;
+        }
+        #but4
+        {
+            bottom: 0%;
+            left: 50%;
+        }
+    </style>
+    <body>
+            <button id = "but1" onclick = "up()">Test</button>
+            <button id = "but2" onclick = "left()">Test2</button>
+            <img src = "star.png" onclick = "hide()">
+            <button id = "but3" onclick = "right()">Test</button>
+            <button id = "but4" onclick = "down()">Test4</button>
+    </body>
+    <script>
+        var img = document.querySelector("img");
+        var directionUD = 0;
+        var directionLR = 0;
+        function up()
+        {
+            directionUD = directionUD - 10;
+            img.style.transform = "translate(" + directionLR + "px, " + directionUD + "px)"; 
+        }
+        function down()
+        {
+            directionUD = directionUD + 10;
+            img.style.transform = "translate(" + directionLR + "px, " + directionUD + "px)"; 
+        }
+        function left()
+        {
+            directionLR = directionLR - 10;
+            img.style.transform = "translate(" + directionLR + "px, " + directionUD + "px)"; 
+        }
+        function right()
+        {
+            directionLR = directionLR + 10;
+            img.style.transform = "translate(" + directionLR + "px, " + directionUD + "px)"; 
+        }
+        function hide()
+        {
+            img.style.display = "none";
+        }
+    </script>
+</html>

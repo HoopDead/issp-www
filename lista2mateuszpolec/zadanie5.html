@@ -1,0 +1,164 @@
+<!DOCTYPE HTML>
+
+<html lang = "pl">
+
+<head>
+    <meta charset="utf-8">
+    <title>Zadanie 5</title>
+    <style>
+        body
+        {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+        }
+        table.A
+        {
+            border-collapse: collapse;
+            font-size: 15px;
+            text-align: center;
+            border: 1px solid #000;
+        }
+        table.A th
+		{
+			margin: 0;
+			border: 1px solid #000;
+			width: 140px;
+            height: 25px;
+            text-align: center;
+            font-weight: bold;
+            background: #f0f5f1;
+            color: #282928;
+		}
+        table.A td
+        {
+            padding: 25px;
+            border: 1px solid #000;
+            background: #f0f5f1;
+            color: #282928;
+        }
+        caption
+        {
+            font-size: 24px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        table.B
+        {
+            margin-top: 150px;
+            border: 1px solid #000;
+            border-collapse: collapse;
+        }
+        table.B th
+        {
+            text-align: center;
+            width: 120px;
+            border: 1px solid #dddddd;
+            padding: 10px;
+        }
+        table.B td
+        {
+            padding: 15px;
+            vertical-align: baseline;
+            text-align: center;
+            border: 1px solid #dddddd;
+        }
+        table.B tr:nth-child(odd)
+        {
+            background-color: #dddddd;
+        }
+        .day
+        {
+            border-right: 1px solid #bdbdbd !important;
+            color: orange;
+        }
+    </style>
+</head>
+<body>
+    <!-- Rowspan -->
+    <table class = "A">
+        <caption>Cennik</caption>
+        <tr>
+            <th>Miejsce</th>
+            <th>Koszt</th>
+            <th>Czas</th>
+        </tr>
+        <tr>
+             <th>Sauna</th>
+             <td rowspan="3">25 PLN</td>
+             <td>45 minut</td>
+        </tr>
+        <tr>
+            <th>Basen</th>
+            <td>Godzina</td>
+
+        </tr>
+        <tr>
+            <th>Siłownia</th>
+            <td>Bez limitu</td>
+        </tr>
+        <tr>
+            <th>SPA</th>
+            <td>50 PLN</td>
+            <td>40 minut</td>
+        </tr>
+    </table>
+    <!-- Colspan -->
+    <table class = "B">
+        <caption>Plan Lekcji</caption>
+        <tr>
+            <th class = "day"></th>
+            <th scope="col" class = "day">Poniedziałek</th>
+            <th scope="col" class = "day">Wtorek</th>
+            <th scope="col" class = "day">Środa</th>
+            <th scope="col" class = "day">Czwartek</th>
+            <th scope="col" class = "day">Piątek</th>
+        </tr>
+        <tr>
+            <th scope="row">8:00</th>
+            <td>J. Polski</td>
+            <td>WOS</td>
+            <td colspan="2">Matematyka</td>
+            <td>W-F</td>
+        </tr>
+        <tr>
+            <th scope = "row">8:45</th>
+            <td colspan = "5">Przerwa</td>
+        </tr>
+        <tr>
+            <th scope="row">9:00</th>
+            <td colspan="4">Chemia</td>
+            <td>J. Polski</td>
+        </tr>
+        <tr>
+            <th scope = "row">8:45</th>
+            <td colspan = "5">Przerwa</td>
+        </tr>
+        <tr>
+            <th scope="row">10:00</th>
+            <td colspan="2">Biologia</td>
+            <td>J. Polski</td>
+            <td colspan = "2">Biologia</td>
+        </tr>
+        <tr>
+            <th scope = "row">8:45</th>
+            <td colspan = "5">Przerwa</td>
+        </tr>
+        <tr>
+            <th scope="row">11:00</th>
+            <td colspan="2">Matematyka</td>
+            <td>W-F</td>
+            <td colspan = "2">Chemia</td>
+        </tr>
+        <tr>
+            <th scope = "row">8:45</th>
+            <td colspan = "5">Przerwa</td>
+        </tr>
+        <tr>
+            <th scope="row">12:00</th>
+            <td>Fizyka</td>
+            <td>Religia</td>
+            <td colspan = "3">Geografia</td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html lang = "pl">
+	<head>
+		<title>Zadanie 5</title>
+		<style>
+			td {width: 40px; height: 40px; border: 1px solid grey}
+			table {border-collapse: collapse}
+			tr:nth-child(odd) td:nth-child(odd) {background: #ddd;}
+			tr:nth-child(even) td:nth-child(even) {background: #ddd;}
+			th {width: 40px; height: 40px; background: #ededed; border: 1px solid grey;}
+		</style>
+	</head>
+	<body>
+		<button onclick = "f()">Liczby</button>
+		<button onclick = "increase()">Zwiększ</button>
+		<button onclick = "changebackground()">Zmien kolor</button>
+		<button onclick = "addTD()">Dodaj komórke TD</button>
+		<button onclick = "addTH()">Dodaj komórkę TH</button>
+		<button onclick = "clean()">Wyczyść</button>
+		<button onclick = "cleanBG()">Wyczyść tło</button>
+		<button onclick = "cleanTABLE()">Wyczyść wiersze</button>
+		<table>
+			<tr><td></td><td></td><td></td><td></td><td></td></tr>
+			<tr><td></td><td></td><td></td><td></td><td></td></tr>
+			<tr><td></td><td></td><td></td><td></td><td></td></tr>
+			<tr><td></td><td></td><td></td><td></td><td></td></tr>
+			<tr><td></td><td></td><td></td><td></td><td></td></tr>
+		</table>
+	</body>
+	<script>
+		var td = document.querySelectorAll("td");
+		var value = 0;
+		var tr = document.querySelectorAll('tr');
+		function f()
+		{
+			var td = document.querySelectorAll("td");
+			for(var i = 0; i < td.length; i++)
+			{
+				console.log(i);
+				document.getElementsByTagName("td")[i].innerHTML = i+1;
+			}
+		}
+		function increase()
+		{
+			var td = document.querySelectorAll("td");
+			for(var i = 0; i < td.length; i++)
+			{
+				document.getElementsByTagName("td")[i].innerHTML = value+i+1;
+			}
+			value++;
+		}
+		function changebackground()
+		{
+			var td = document.querySelectorAll("td");
+			var check = document.getElementsByTagName('td')[0].innerHTML;
+			if(check == "")
+			{
+				alert("Najpierw wypisz liczby!");
+				f();
+			}
+			else
+			{
+				for(var i = 0; i < td.length; i++)
+				{
+					var TextInside = document.getElementsByTagName('td')[i].innerHTML;
+					if(Number(TextInside) % 2 == 0)
+					{
+						td[i].style.backgroundColor = "red";
+					}
+					else
+					{
+						td[i].style.backgroundColor = "green";
+					}
+				}
+			}
+		}
+		function addTD()
+		{
+			for(var i = 0; i < tr.length; i++)
+			{
+				var row = document.getElementsByTagName("tr")[i];
+				var x = row.insertCell();
+			}
+		}
+		function addTH()
+		{
+			for(var i = 0; i < tr.length; i++)
+			{
+				var row = document.getElementsByTagName("tr");
+				tr[i].innerHTML = "<th></th>" + tr[i].innerHTML;
+			}
+		}
+		function clean()
+		{
+			for(var i = 0; i < td.length; i++)
+			{
+				document.getElementsByTagName("td")[i].innerHTML = "";
+			}		
+		}
+		function cleanBG()
+		{
+			var td = document.querySelectorAll("td");
+			for(var i = 0; i < td.length; i++)
+			{
+				if(i%2 == 0)
+				{
+					document.getElementsByTagName("td")[i].style.backgroundColor = "#dddddd";
+				}
+				else
+				{
+					document.getElementsByTagName("td")[i].style.backgroundColor = "white";
+				}
+			}		
+		}
+		function cleanTABLE()
+		{
+			for(var i = 0; i < tr.length; i++)
+			{
+				tr[i].innerHTML = "";
+			}
+		}
+	</script>
+</html>

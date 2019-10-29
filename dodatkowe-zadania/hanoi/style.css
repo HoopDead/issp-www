@@ -1,0 +1,49 @@
+.droptarget {
+    float: left; 
+    width: 500px; 
+    height: 300px;;
+    margin: 15px;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+    text-align: center;
+}
+
+#dragtarget1
+{
+    width: 75px;
+    height: 30px;
+    margin: auto;
+    background-color: red;
+}
+
+#dragtarget2
+{
+    width: 120px;
+    height: 30px;
+    margin: auto;
+    background-color: orange;
+}
+
+#dragtarget3
+{
+    width: 150px;
+    height: 30px;
+    margin: auto;
+    background-color: yellow;
+}
+
+#dragtarget4
+{
+    width: 180px;
+    height: 30px;
+    margin: auto;
+    background-color: green;
+}
+
+#dragtarget5
+{
+    width: 210px;
+    height: 30px;
+    margin: auto;
+    background-color: blue;
+}

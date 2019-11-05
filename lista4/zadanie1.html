@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Zadanie 1</title>
+<style>
+    #ramka {height:700px;width:700px; border:1px solid grey;margin:auto;position:relative}
+    #mieszaj {pointer:hand}
+    b {display:block;height:0px;width:30px;border-radius:0px;backgrounds:red;position:absolute;}
+    h1,div {text-align:center;margin:10px}
+    img { width: 40px; margin-top: -15px;}
+</style>
+</head>
+<body>
+
+</body>
+
+<h1>Supermany</h1>
+<div id='ramka'>
+    <b><img src = "superman.png"></b>
+    <b><img src = "superman.png"></b>
+    <b><img src = "superman.png"></b>
+    <b><img src = "superman.png"></b>
+    <b><img src = "superman.png"></b>
+    <b><img src = "superman.png"></b>
+    <b><img src = "superman.png"></b>
+    <b><img src = "superman.png"></b>
+    <b><img src = "superman.png"></b>
+    <b><img src = "superman.png"></b>
+    <b><img src = "superman.png"></b>
+    <b><img src = "superman.png"></b>
+</div>
+
+<div>
+    <button onclick="run=false"> Stop </button>
+    <button onclick="run=true;step();timer();"> Start </button>
+    <button onclick = "newgame();">Nowa gra</button>
+    <p id = "ilosc"></p>
+</div>
+
+
+<script>
+        var b=document.getElementsByTagName('B');
+        var run=false;
+        var i;
+        for(i=0;i<b.length;i++)
+        {
+            b[i].x=Math.random()*650+10;
+            b[i].y=Math.random()*650+10;
+
+            b[i].vx=Math.random()*8-5;
+            b[i].vy=Math.random()*8-5;
+            
+            b[i].style.left=b[i].x+"px";
+            b[i].style.top =b[i].y+"px";            
+            b[i].onclick=stop;
+        }
+
+    function step()
+    {
+        var i;
+        for(i=0;i<b.length;i++)
+        {
+            b[i].x+=b[i].vx;
+            b[i].y+=b[i].vy;
+            
+            if(b[i].x>670 || b[i].x<0)  b[i].vx*=-1;
+            if(b[i].y>670 || b[i].y<0)  b[i].vy*=-1;
+            
+            b[i].style.left=b[i].x+"px";
+            b[i].style.top =b[i].y+"px";
+            b[i].style.transform="rotate("+Math.atan2(b[i].vy,b[i].vx)*1+"rad)";
+        }
+        
+        if(run)
+            setTimeout(step,20);
+        
+    }
+    
+    var ilosc = b.length;
+    var time = 0;
+
+    function newgame()
+    {
+        console.log("New game");
+        run = true;
+        for(let i = 0; i < b.length; i++)
+        {
+            b[i].style.display = "block";
+            b[i].vx = 0;
+            b[i].vy = 0;
+        }
+        var i;
+        for(i=0;i<b.length;i++)
+        {
+            b[i].x=Math.random()*490;
+            b[i].y=Math.random()*490;
+
+            b[i].vx=Math.random()*8-5;
+            b[i].vy=Math.random()*8-5;
+            
+            b[i].style.left=b[i].x+"px";
+            b[i].style.top =b[i].y+"px";            
+            b[i].onclick=stop;
+        }
+        ilosc = b.length;
+        display();
+        step();
+        time = 0;
+        timer();
+    }
+
+    function timer()
+    {
+        setInterval(function()
+        {
+            time = time + 0.01;
+        }, 10)
+    }
+    
+    function stop()
+    {
+        this.vx=0;
+        this.vy=0;
+    }
+
+    function display()
+    {
+        if(ilosc > 0)
+        {
+            document.getElementById("ilosc").innerHTML = "Ilość elementów: " + ilosc;
+        }
+        else if (ilosc < 1)
+        {
+            run = false;
+            var timeDisplay = time.toFixed(3);
+            document.getElementById("ilosc").innerHTML = "Mission completed in " + timeDisplay + " seconds";
+        }
+    }
+
+    for(let i = 0; i < b.length; i++)
+    {
+        b[i].onmousedown = f;
+    }
+
+    function f()
+    {
+        ilosc--;
+        this.style.display = "none";
+        display();
+    }
+    display();
+</script>
+
+</html>

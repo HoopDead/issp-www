@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <title>Zadanie 4</title>
+        <style>
+            button { display: block; margin-top: 10px; background-color: chartreuse; border: none; padding: 10px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; text-align: center; width: 150px;}
+            button:hover { background-color: greenyellow; cursor: pointer;}
+            h2 {font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;}
+            ol {font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; text-align: center;   list-style-position: inside;}
+            div#lista { width: 100%; margin: auto; text-align: center;}
+        </style>
+    </head>
+    <body>
+        <button onclick = "wszyscy()">Wszyscy studenci</button>
+        <button onclick = "pokaz('fizyka')">Studenci fizyki</button>
+        <button onclick = "pokaz('chemia')">Studenci chemii</button>
+        <button onclick = "pokaz('matematyka')">Studenci matematyki</button>
+        <button onclick = "pokaz('informatyka stosowana i systemy pomiarowe')">Studenci ISSP</button>
+        <button onclick = "pokaz('biologia')">Studenci biologii</button>
+        <button onclick = "pokaz('Kosmetologia')">Studenci Kosmetologii</button>
+        <div id = "lista"></div>
+
+    </body>
+    <script>
+    var student=[ {imie:"Ola",nazwisko:"Lis",kierunek:"fizyka"},
+    {imie:"Ala",nazwisko:"Góral",kierunek:"chemia"},
+    {imie:"Jan",nazwisko:"Nowak",kierunek:"fizyka"},
+    {imie: "Jakub", nazwisko: "Andrzejewski", kierunek: "matematyka"},
+    {imie: "Mateusz", nazwisko: "Połeć", kierunek: "informatyka stosowana i systemy pomiarowe"},
+    {imie: "Wojciech", nazwisko: "Kusz", kierunek: "biologia"},
+    {imie: "Joanna", nazwisko: "Krupa", kierunek: "Kosmetologia"},
+    {imie:"Albert",nazwisko:"Goniuch",kierunek:"fizyka"},
+    {imie:"Norbert",nazwisko:"Majewski",kierunek:"chemia"},
+    {imie:"Aniela",nazwisko:"Dąbrowska",kierunek:"fizyka"},
+    {imie: "Walerian", nazwisko: "Kamiński", kierunek: "matematyka"},
+    {imie: "Jarosław", nazwisko: "Dąbrowski", kierunek: "informatyka stosowana i systemy pomiarowe"},
+    {imie: "Wincenty", nazwisko: "Piotrowski", kierunek: "biologia"},
+    {imie: "Makary", nazwisko: "Zieliński", kierunek: "Kosmetologia"}];
+
+
+    var doc = document.getElementById("lista");
+
+    function wszyscy()
+    {
+        doc.innerHTML = "";
+        doc.innerHTML += "<h2>Studenci</h2>";
+        doc.innerHTML += "<ol>";
+        var ol = document.querySelector("ol");
+        for(let i in student)
+        {
+            ol.innerHTML += "<li>Imie: " + student[i].imie + " " + student[i].nazwisko + " " + "(" + student[i].kierunek + ")" +"</li>";
+        }
+        doc.innerHTML += "</ol>";
+    }
+
+    function pokaz(arg)
+    {
+        doc.innerHTML = "";
+        doc.innerHTML += "<h2>" + arg.toUpperCase() + "</h2>";
+        doc.innerHTML += "<ol>";
+        var ol = document.querySelector("ol");
+        for(let i in student)
+        {
+            if(student[i].kierunek == arg)
+            {
+                ol.innerHTML += "<li>" + student[i].imie + " " + student[i].nazwisko;
+            }
+        }
+        doc.innerHTML += "</ol>";
+    }
+    </script>
+</html>

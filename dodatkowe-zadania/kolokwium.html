@@ -4,24 +4,93 @@
         <meta charset="utf-8">
         <title>Kolokwium</title>
         <style>
-            #aa
+            table#aa
             {
                 background-color: yellow;
             }
-            #aa td
+            table#aa td
             {
                 width: 100px;
                 height: 100px;
             }
-            #aa tr:nth-child(1) td
+            table#aa tr:nth-child(1) td
             {
                 width: 50px;
                 height: 50px;
             }
-            #aa tr:nth-child(2n)
+            table#aa tr:nth-child(2n)
             {
                 background-color: gray;
             }
+
+            table
+            {
+                background-color: grey;
+            }
+            table#aa td:hover
+            {
+                border: 1px solid #000;
+            }
+            table#aa tr:nth-child(odd) td:nth-child(even)
+            {
+                background-color: grey;
+            }
+            ul.bb li ul
+            {
+                color: green;
+            }
+            /* ul.bb li
+            {
+                visibility: hidden;
+            } */
+            ul.bb li ul li:nth-child(1)
+            {
+                font-weight: bold;
+            }
+
+            ul.bb li ul li:nth-child(2)
+            {
+                color: red;
+            }
+
+            /* ul.bb li
+            {
+                display: table-cell;
+            } */
+            ul.bb > li > ul
+            {
+                visibility: hidden;
+            }
+            ul.bb li:hover ul
+            {
+                visibility: visible;
+            }
+            ul.bb li ul li 
+            {
+                list-style-type: none;
+            }
+            div.red
+            {
+                border: 1px solid red;
+            }
+            div.red > div
+            {
+                border: 1px solid red;
+                margin: 3px;
+            }
+            div.red > div > div
+            {
+                margin: 10px;
+            }
+            p:nth-child(even) img
+            {
+                float: right;
+            }
+            p:nth-child(odd) img
+            {
+                float: left;
+            }
+
         </style>
     </head>
     <body>

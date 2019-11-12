@@ -9,22 +9,50 @@
 
     </body>
     <script>
+
     var student=[ {imie:"Ola",nazwisko:"Lis",kierunek:"fizyka"},
     {imie:"Ala",nazwisko:"Góral",kierunek:"chemia"},
     {imie:"Jan",nazwisko:"Nowak",kierunek:"fizyka"},
     {imie: "Jakub", nazwisko: "Andrzejewski", kierunek: "matematyka"},
-    {imie: "Mateusz", nazwisko: "Połeć", kierunek: "informatyka stosowana i systemy pomiarowe"},
     {imie: "Wojciech", nazwisko: "Kusz", kierunek: "biologia"},
-    {imie: "Joanna", nazwisko: "Krupa", kierunek: "Kosmetologia"},
+    {imie: "Joanna", nazwisko: "Krupa", kierunek: "kosmetologia"},
     {imie:"Albert",nazwisko:"Goniuch",kierunek:"fizyka"},
     {imie:"Norbert",nazwisko:"Majewski",kierunek:"chemia"},
     {imie:"Aniela",nazwisko:"Dąbrowska",kierunek:"fizyka"},
     {imie: "Walerian", nazwisko: "Kamiński", kierunek: "matematyka"},
-    {imie: "Jarosław", nazwisko: "Dąbrowski", kierunek: "informatyka stosowana i systemy pomiarowe"},
     {imie: "Wincenty", nazwisko: "Piotrowski", kierunek: "biologia"},
-    {imie: "Makary", nazwisko: "Zieliński", kierunek: "Kosmetologia"}];
+    {imie: "Makary", nazwisko: "Zieliński", kierunek: "kosmetologia"},
+    {imie: "Anna", nazwisko: "Ryga", kierunek: "biologia"}];
+ 
 
-
+    var dane = {};
+    var kierunki = [];
+    student.forEach(function(el)
+    {
+        kierunki.push(el["kierunek"]);
+    })
     var doc = document.getElementById("lista");
+    
+    kierunki.forEach(function(v, i)
+    {
+        if(v in dane)
+        {
+            dane[v] += 1;
+        }
+        else
+        {
+            dane[v] = 1;
+        }
+    });
+
+    console.log(dane);
+    doc.innerHTML = "<h2>Ilosc studentow kierunków</h2>";
+    doc.innerHTML += "<ul>";
+    var ol = document.querySelector("ul");
+    for(x in dane)
+    {
+        ol.innerHTML += "<li>" + (x + ": " + dane[x]) + "</li>";
+    }
+    doc.innerHTML += "</ul>";
     </script>
 </html>

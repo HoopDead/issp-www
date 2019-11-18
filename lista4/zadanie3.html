@@ -26,7 +26,7 @@
 	<div id='x'></div>
 	
 	<div>
-		<span onclick='razy()'>*2</span>  <span id='dodaj'>+1</span>
+		<span onclick='razy()'>*3</span>  <span id='dodaj'>+1</span><span id = 'dodaj2'>+2</span>
 	</div>
 
 	<div>
@@ -53,31 +53,45 @@
 	var cel=document.querySelector('#cel');
 	var x=document.querySelector('#x');
 	var dodaj=document.querySelector('#dodaj');
+	var dodaj2 = document.getElementById("dodaj2");
 
 	losuj(100);
 
 	function losuj(n)
 	{	
 		cel.innerHTML=Math.ceil(Math.random()*n);
-		x.innerHTML=1;
-		dodaj.onclick=null;
-		dodaj.style.background='grey';
+		x.innerHTML=0;
+		dodaj.onclick=plus;
+		dodaj.style.background='';
+		dodaj2.onclick = plus;
+		dodaj2.style.background ='';
 	}
 
 	function razy()
 	{
-		x.innerHTML*=2;
+		x.innerHTML*=3;
 		sprawdz();
 		dodaj.onclick=plus;
 		dodaj.style.background='';
+		dodaj2.onclick = plus;
+		dodaj2.style.background ='';
 	}
 
 	function plus()
-	{   
-		x.innerHTML=Number(x.innerHTML)+1;
+	{
+		if(this == dodaj)
+		{
+			dodaj.onclick=null;
+			dodaj.style.background='grey';
+			x.innerHTML=Number(x.innerHTML)+1;
+		}
+		else if (this == dodaj2)
+		{
+			dodaj2.onclick = null;
+			dodaj2.style.background = 'grey';
+			x.innerHTML=Number(x.innerHTML)+2;
+		}
 		sprawdz();
-		dodaj.onclick=null;
-		dodaj.style.background='grey';
 	}
 
 	function sprawdz()

@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <title>Zadanie 5</title>
+        <style>
+        * {font-family:Arial, Sans}
+        h1,b {font-weight:normal;}
+        div.wykres > div {
+                width:100px;
+                margin:20px;
+                box-shadow:10px 10px 5px grey;
+                border:1px solid grey;
+                display:inline-block;
+                margin-top:50px;
+                vertical-align:bottom;
+            }
+        div.wykres > div b { 
+                top:-20px;
+                display:box;
+                position:relative;
+                text-shadow:5px 5px 5px grey;
+            }   
+        div.wykres div div {
+                color:white;
+                position:relative;
+                top:-19px;
+                text-shadow:0px 0px 5px black;
+        }
+        h2 {font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;}
+        ul {font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; text-align: center;   list-style-type: none; background-color: #ebebeb; padding: 25px; width: 150px; border: 1px solid #000;}
+        </style>
+    </head>
+    <body>
+    <script>
+
+    var student=[ {imie:"Ola",nazwisko:"Lis",kierunek:"fizyka"},
+    {imie:"Ala",nazwisko:"Góral",kierunek:"chemia"},
+    {imie:"Jan",nazwisko:"Nowak",kierunek:"fizyka"},
+    {imie: "Jakub", nazwisko: "Andrzejewski", kierunek: "matematyka"},
+    {imie: "Wojciech", nazwisko: "Kusz", kierunek: "biologia"},
+    {imie: "Joanna", nazwisko: "Krupa", kierunek: "kosmetologia"},
+    {imie:"Albert",nazwisko:"Goniuch",kierunek:"fizyka"},
+    {imie:"Norbert",nazwisko:"Majewski",kierunek:"chemia"},
+    {imie:"Aniela",nazwisko:"Dąbrowska",kierunek:"fizyka"},
+    {imie: "Walerian", nazwisko: "Kamiński", kierunek: "matematyka"},
+    {imie: "Wincenty", nazwisko: "Piotrowski", kierunek: "biologia"},
+    {imie: "Makary", nazwisko: "Zieliński", kierunek: "kosmetologia"},
+    {imie: "Anna", nazwisko: "Ryga", kierunek: "biologia"},
+    {imie:"Aleksander",nazwisko:"Unisławiecki",kierunek:"fizyka"},
+    {imie:"Barbara",nazwisko:"Ryder",kierunek:"fizyka"},
+    {imie:"Katarzyna",nazwisko:"Dym",kierunek:"fizyka"},
+    {imie:"Przemyslaw",nazwisko:"Łapiński",kierunek:"fizyka"},
+    {imie:"Artur",nazwisko:"Kłapiński",kierunek:"fizyka"},
+    {imie:"Tomasz",nazwisko:"Lisiewicz",kierunek:"fizyka"}];
+ 
+
+    var dane = {};
+    var kierunki = [];
+    student.forEach(function(el)
+    {
+        kierunki.push(el["kierunek"]);
+    })
+    var doc = document.getElementById("lista");
+    
+    kierunki.forEach(function(v, i)
+    {
+        if(v in dane)
+        {
+            dane[v] += 1;
+        }
+        else
+        {
+            dane[v] = 1;
+        }
+    });
+
+    console.log(dane);
+
+    var wykresdane={title:'Studenci',
+          names:['Fizyka', 'Chemia', 'Matematyka', 'Biologia', 'Kosmetologia'],
+          values:[dane.fizyka, dane.chemia, dane.matematyka, dane.biologia, dane.kosmetologia],
+          colors:['red','orange','black','blue','green','grey'],
+          legend:'Ilość studentów na danym kierunku', 
+        };
+
+    function wykres(wykresdane,id)
+     {
+        var t='<h1>'+wykresdane.title+'</h1>';
+         t+='<div class="wykres">';
+         var i;
+         for(i=0;i<wykresdane.names.length;i++)
+         {
+             t+="<div style='height:"+wykresdane.values[i]+"px;background:"+wykresdane.colors[i]+"'>";
+             t+="<b>"+wykresdane.names[i]+"</b>";
+             t+="<div>"+wykresdane.values[i]+"</div>";
+             t+="</div>";
+         }
+         
+         t+='</div>';
+        t+="<div>"+wykresdane.legend+"</div>";
+         document.getElementById(id).innerHTML=t;     
+    }
+    function podpis()
+    {
+        var doc = document.getElementById("lista");
+        doc.innerHTML = "<h2>Legenda</h2>";
+        doc.innerHTML += "<ul>";
+        var ol = document.querySelector("ul");
+        for(x in dane)
+        {
+            ol.innerHTML += "<li>" + (x + ": " + dane[x]) + "</li>";
+        }
+    doc.innerHTML += "</ul>";
+    }
+    </script>
+        <button onclick="wykres(wykresdane,'wykres');podpis();">Wykres</button>
+        <center id = "wykres"></center>
+        <center><div id = "lista"></div></center>
+
+    </body>
+</html>

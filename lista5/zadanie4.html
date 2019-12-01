@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+
+<html lang = "pl">
+    <head>
+        <meta charset="utf-8">
+        <title>Zadanie 4</title>
+    </head>
+    <body>
+        <canvas id = "rys" width = "600" height = "600"></canvas>
+        <script>
+            var c = document.getElementById("rys");
+            var ctx = c.getContext("2d");
+            function drawSnowmen(x, y, height)
+            {
+                ctx.beginPath();
+                ctx.arc(x, y, height, 0, 2 * Math.PI);
+                ctx.fillStyle = "#ebebeb";
+                ctx.fill();
+
+                ctx.beginPath();
+                ctx.moveTo(x, y-height-35);
+                ctx.arc(x, y-height-35, height-15, 0, 2 * Math.PI);
+                ctx.fillStyle = "#ebebeb";
+                ctx.fill();
+
+                ctx.beginPath();
+                ctx.moveTo(x, y-2*height-40);
+                ctx.arc(x, y-2*height-40, height-30, 0, 2  * Math.PI);
+                ctx.closePath();
+                ctx.fillStyle = "#ebebeb";
+                ctx.fill();
+            }
+            function drawHouse(x, y, height)
+            {
+                ctx.beginPath();
+                ctx.rect(x, y, height, height);
+                ctx.fillStyle = "brown";
+                ctx.fill();
+
+                ctx.beginPath();
+                ctx.moveTo(x,y);
+                ctx.lineTo(x+height/2,y-height/1.5);
+                ctx.lineTo(x+height,y);
+                ctx.fillStyle = "red";
+                ctx.fill();
+            }
+            function drawTree(x, y, width, height)
+            {
+                ctx.beginPath();
+                ctx.rect(x, y, width, height);
+                ctx.fillStyle = "brown";
+                ctx.fill();
+
+                ctx.beginPath();
+                ctx.moveTo(x-width, y);
+                ctx.lineTo(x+width/2,y-height/1.5);
+                ctx.lineTo(x+2*width,y);
+                ctx.fillStyle = "green";
+                ctx.fill();
+
+                ctx.beginPath();
+                ctx.moveTo(x-width, y+height/1.5);
+                ctx.lineTo(x+width/2, y-height/3);
+                ctx.lineTo(x+2*width, y+height/1.5);
+                ctx.fill();
+            }
+            drawSnowmen(100, 200, 50);
+            drawSnowmen(300, 200, 60);
+            drawSnowmen(500, 300, 70);
+            drawSnowmen(100, 500, 60);
+            drawHouse(50, 50, 100);
+            drawHouse(200, 250, 55);
+            drawHouse(312, 390, 32);
+            drawTree(350, 250, 30, 100);
+            drawTree(450, 250, 30, 65);
+            drawTree(550, 250, 30, 90);
+
+
+
+
+            //First snowman
+            //x = 100
+            //y = 200
+            //height = 50
+
+            //Second Snowman
+            //x = 135
+            //y = 115
+            //height = 35
+            //ctx.moveTo => x+height-15, y-height-35
+            //ctx.arc => x, y-height-35, height-15
+
+            
+        </script>
+    </body>
+</html>

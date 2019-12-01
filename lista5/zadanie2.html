@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html lang = "pl">
+    <head>
+        <meta charset="utf-8">
+        <title>Zadanie 2</title>
+    </head>
+    <body>
+        <h3>Podpunkt A</h3>
+        <svg width = "1600" height = "600">
+            <path d="M0,500 L400,500 L400, 200 L0, 200 L0, 100" fill = "gray"/>
+            <path d="M200, 0 L0,200 L400, 200 Z" fill = "red"/>
+            <path d = "M50,250 L100,250 L100, 300 L50, 300Z" fill = "blue"/>
+            <path d = "M200, 500 L300, 500 L300, 300 L200, 300" fill = "brown"/>
+            <path d='M 25,60 
+            a 20,20 1 0,0 0,40 
+            h 50 
+            a 20,20 1 0,0 0,-40 
+            a 10,10 1 0,0 -15,-10 
+            a 15,15 1 0,0 -35,10  
+            z' fill = "#c9c9c9"/>
+        </svg>
+        <h3>Podpunkt B</h3>
+        <p>Obiekty klikalne: Drzwi, Chmurka    </p>
+        <svg width = "1600" height = "600">
+                <path d="M0,500 L400,500 L400, 200 L0, 200 L0, 100" fill = "gray"/>
+                <path d="M200, 0 L0,200 L400, 200 Z" fill = "red"/>
+                <path id = "window" d = "M50,250 L100,250 L100, 300 L50, 300 Z" fill = "blue"/>
+                <path id = "doors" d = "M200, 500 L300, 500 L300, 300 L200, 300" fill = "brown"/>
+                <path id = "cloud" d='M 25,60 
+                a 20,20 1 0,0 0,40 
+                h 50 
+                a 20,20 1 0,0 0,-40 
+                a 10,10 1 0,0 -15,-10 
+                a 15,15 1 0,0 -35,10  
+                z' fill = "#c9c9c9"/>
+            </svg>
+            <script>
+            var doors = document.getElementById("doors"),
+                cloud = document.getElementById("cloud");
+            
+            doors.onclick = doorsRun;
+            cloud.onclick = cloudRun;
+
+            function doorsRun()
+            {
+                doors.animate([
+                    { fill: 'black' },
+                    { fill: 'brown' },
+                    { fill: 'black' },
+                    { fill: 'brown' }
+                ], {
+                    duration: 6000
+                })
+            }
+            function cloudRun()
+            {
+                cloud.animate([
+                    { transform: 'translateX(0px)' },
+                    { transform: 'translateX(100px)' },
+                    { transform: 'translateX(200px) '},
+                    { transform: 'translateX(300px)'}
+                ], {
+                    duration: 6000
+                });
+            }
+            </script>
+    </body>
+</html>

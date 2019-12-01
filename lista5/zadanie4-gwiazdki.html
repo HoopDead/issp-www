@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <title>Zadanie 4</title>
+    </head>
+    <body>
+        <canvas id = 'rys' width = '600' height = '600'></canvas>
+        <script>
+            var c = document.getElementById('rys');
+            var ctx = c.getContext("2d");
+            ctx.fillStyle = 'black';
+            ctx.fillRect(0, 0, 600, 600);
+            function draw()
+            {
+                var x = [],
+                    y = [],
+                    height = [],
+                    xStars = [],
+                    yStars = [],
+                    heightStars = [];
+                for(let i = 0; i < 7; i++)
+                {
+                    x.push(Math.floor(Math.random() * 550) + 25);
+                    y.push(Math.floor(Math.random() * 550) + 25);
+                    height.push(Math.floor(Math.random() * 25) + 10); 
+                }
+                for(let i = 0; i < 60; i++)
+                {
+                    xStars.push(Math.floor(Math.random() * 595) + 5);
+                    yStars.push(Math.floor(Math.random() * 595) + 5);
+                    heightStars.push(Math.floor(Math.random() * 3) + 1);
+                }
+
+                drawStars(xStars,yStars,heightStars);
+                drawPlanet(x, y, height);
+
+            }
+
+            function getGradient(x, y, height)
+            {
+                var r = Math.floor(Math.random() * 255),
+                    g = Math.floor(Math.random() * 255),
+                    b = Math.floor(Math.random() * 255);
+                var grd = ctx.createRadialGradient(x, y, 0, x, y, height);
+                grd.addColorStop(1, `rgba(${r}, ${g}, ${b}, 1.000)`);
+                grd.addColorStop(0.4, `rgba(${r}, ${r}, ${b}, 1.000)`);
+                grd.addColorStop(1, `rgba(${r}, ${g}, ${b}, 1.000)`);
+
+
+                return grd;
+            }
+            function drawPlanet(x, y, height)
+            {
+                for (var i in y)
+                {
+                    console.log(y[i]);
+                    ctx.beginPath();
+                    ctx.arc(x[i], y[i], height[i], 0, 2 * Math.PI);
+                    ctx.stroke();
+                    ctx.fillStyle = getGradient(x[i], y[i], height[i]);
+                    ctx.fill();
+                }
+            }
+            function drawStars(x, y, height)
+            {
+                for (var i in x)
+                {
+                    ctx.beginPath();
+                    ctx.arc(x[i], y[i], height[i], 0, 2 * Math.PI);
+                    ctx.stroke();
+                    ctx.fillStyle = 'white';
+                    ctx.fill();
+                }
+            }
+            draw();
+        </script>
+    </body>
+</html>

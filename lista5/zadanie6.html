@@ -1,0 +1,193 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Zadanie 5</title>
+    </head>
+    <style>
+        button {
+            width: 100px;
+            border: none;
+            height: 25px;
+            background-color: yellow;
+            border-radius: 1rem;
+            font-weight: bold;
+            margin: 5px;
+        }
+        #tekst
+        {
+            background-color: goldenrod;
+            width: 1500px;
+            text-align: center;
+            height: 100px;
+        }
+        input
+        {
+            margin: 10px;
+            border: 1px solid #000;
+            text-align: center;
+            color: green;
+        }
+    </style>
+    <body>
+        <canvas id = 'rys' width = '600' height = '600' style = "border: 1px solid #000"></canvas>
+        <div id = "tekst">
+            <button id = "start" onclick = "start()">Start</button>
+            <button onclick = "stop()">Stop</button>
+            <input id = "wspolx" type = "text" placeholder="X">
+            <input id = "wspoly" type = "text" placeholder="Y">
+            <input id = "predx" type = "text" placeholder="VX">
+            <input id = "predy" type = "text" placeholder="VY">
+            <input id = "szerokosc" type = "text" placeholder="Szerokosc">
+            <input id = "wysokosc" type = "text" placeholder="Wysokość">
+            <select id = "wybor">
+                <option value = "balwan">Bałwan</option>
+                <option value = "domek">Domek</option>
+                <option value = "choinka">Choinka</option>
+            </select>
+             <button onclick = "appendData()">Prześlij</button>
+            </div>
+        <script>
+            var run = false;
+            var dane = [
+                {x: 200, y: 200, vx: 3, vy: -1, width: 100, height: 60, rysuj: balwan},
+                {x: 300, y: 250, vx: 2, vy: 2, width: 100, height: 100, rysuj: domek},
+                {x: 450, y: 100, vx: 1, vy: -1, width: 30, height: 90, rysuj: choinka}
+            ];
+            var c = document.getElementById("rys");
+            var ctx = c.getContext("2d");
+            function drawSnowmen(x, y, height)
+            {
+                ctx.beginPath();
+                ctx.arc(x, y, height, 0, 2 * Math.PI);
+                ctx.fillStyle = "#ebebeb";
+                ctx.fill();
+
+                ctx.beginPath();
+                ctx.moveTo(x, y-height-35);
+                ctx.arc(x, y-height-35, height-15, 0, 2 * Math.PI);
+                ctx.fillStyle = "#ebebeb";
+                ctx.fill();
+
+                ctx.beginPath();
+                ctx.moveTo(x, y-2*height-40);
+                ctx.arc(x, y-2*height-40, height-30, 0, 2  * Math.PI);
+                ctx.closePath();
+                ctx.fillStyle = "#ebebeb";
+                ctx.fill();
+            }
+            function drawHouse(x, y, height)
+            {
+                ctx.beginPath();
+                ctx.rect(x, y, height, height);
+                ctx.fillStyle = "brown";
+                ctx.fill();
+
+                ctx.beginPath();
+                ctx.moveTo(x,y);
+                ctx.lineTo(x+height/2,y-height/1.5);
+                ctx.lineTo(x+height,y);
+                ctx.fillStyle = "red";
+                ctx.fill();
+            }
+            function drawTree(x, y, width, height)
+            {
+                ctx.beginPath();
+                ctx.rect(x, y, width, height);
+                ctx.fillStyle = "brown";
+                ctx.fill();
+
+                ctx.beginPath();
+                ctx.moveTo(x-width, y);
+                ctx.lineTo(x+width/2,y-height/1.5);
+                ctx.lineTo(x+2*width,y);
+                ctx.fillStyle = "green";
+                ctx.fill();
+
+                ctx.beginPath();
+                ctx.moveTo(x-width, y+height/1.5);
+                ctx.lineTo(x+width/2, y-height/3);
+                ctx.lineTo(x+2*width, y+height/1.5);
+                ctx.fill();
+            }
+
+            function domek()
+            {
+                drawHouse(this.x, this.y, this.height);
+            }
+
+            function balwan()
+            {
+                drawSnowmen(this.x, this.y, this.height);
+            }
+
+            function choinka()
+            {
+                drawTree(this.x, this.y, this.width, this.height);
+            }
+
+            function redraw(dane)
+            {
+                ctx.clearRect(0, 0, 600, 600);
+                for(let x of dane)
+                {
+                    x.rysuj();
+                }
+            }
+            function ruch()
+            {
+                for(let f of dane)
+                {
+                    f.x+=f.vx; if(f.x<0 || f.x+f.width>600) f.vx*=-1;
+                    f.y+=f.vy; if(f.y<0 || f.y+f.height>600) f.vy*=-1;
+                    console.log(f.x);
+                }
+                redraw(dane);
+                if(run)
+                {
+                    setTimeout(ruch, 20);
+                }
+            }
+            function start()
+            {
+                document.getElementById("start").disabled = true;
+                run = true;
+                ruch();
+            }
+            function stop()
+            {
+                document.getElementById("start").disabled = false;
+                run = false;
+            }
+
+            function appendData()
+            {
+                var szerokosc = document.getElementById("szerokosc").value;
+                var wysokosc = document.getElementById("wysokosc").value;
+                var e = document.getElementById("wybor");
+                var wspolx = document.getElementById("wspolx").value;
+                var predx = document.getElementById("predx").value;
+                var wspoly = document.getElementById("wspoly").value;
+                var predy = document.getElementById("predy").value;
+                var value = e.options[e.selectedIndex].value;
+                if(value == "domek")
+                {
+
+                    dane.push({x: Number(wspolx), y: Number(wspoly), vx: Number(predx), vy: Number(predy), width: Number(szerokosc), height: Number(wysokosc),  rysuj: domek });
+                }
+                else if (value == "choinka")
+                {
+
+                    dane.push({x: Number(wspolx), y: Number(wspoly), vx: Number(predx), vy: Number(predy), width: Number(szerokosc), height: Number(wysokosc),  rysuj: choinka });
+                }
+                else if (value == "balwan")
+                {
+
+                    dane.push({x: Number(wspolx), y: Number(wspoly), vx: Number(predx), vy: Number(predy), width: Number(szerokosc), height: Number(wysokosc),  rysuj: balwan });
+                }
+                console.log(dane);
+            }
+        </script>
+    </body>
+</html>

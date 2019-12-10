@@ -1,21 +1,21 @@
 <?php
 include "0begin.php";
 ?>
-<h1>Strona </h1>
+<h1>Filmiki</h1>
 <ul>
 <?php
 
-  $obrazki=scandir('news');
+  $film=scandir('movies');
 
 
-  foreach($obrazki as $plik)
-
-  {if($plik[0]!='.')
-     {
-       include "news/$plik";
-       echo "\n\n";
-     }
+  foreach($film as $plik)
+  {
+      if(($plik != '.') && ($plik != '..'))
+      {
+        echo "<video id='sampleMovie' src='movies/$plik' autoplay muted loop width = '600' height = '600'></video>";
+      }
   }
+
 ?>
 </ul>
 <?php

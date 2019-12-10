@@ -2,7 +2,8 @@
 	div#menu
 	{
 		background-color: #C695B3;
-		width: 100%;
+		width: 1000px;
+        margin-left: -200px;
 	}
     a
     {
@@ -21,4 +22,6 @@
 <a href="a3.php">Projekty</a>
 <a href="a4.php">Zdjęcia</a>
 <a href="a5.php">Filmiki</a>
+<a href="a6.php">Chat</a>
+<a href="a7.php">Fibbonaci</a>
 </div>

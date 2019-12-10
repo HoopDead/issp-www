@@ -1,3 +1,7 @@
+<?php
+    include '0begin.php';
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -48,13 +52,15 @@
     </head>
 
 <body>
-    <h2>Chat</h2>
-    <ul id='chat'></ul>
-    <form method='post' class='ajax'>
-            <input id='nick' name='nick' placeholder="Podaj imię" autocomplete="off">
-            <input id='text' name='text' placeholder = "Treść" autocomplete="off">
-            <button type=submit name='co'>Prześlij</button>
-    </form>
+    <div id=main>
+        <h2>Chat</h2>
+        <ul id='chat'></ul>
+        <form method='post' class='ajax'>
+                <input id='nick' name='nick' placeholder="Podaj imię" autocomplete="off">
+                <input id='text' name='text' placeholder = "Treść" autocomplete="off">
+                <button type=submit name='co'>Prześlij</button>
+        </form>
+    </div>
 
 </body>
 
@@ -107,3 +113,7 @@ $("form.ajax").on("submit",
 
 </script>
 </html>
+
+<?php
+    include '0end.php';
+?>

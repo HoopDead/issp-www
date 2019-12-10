@@ -108,9 +108,10 @@
     }
     function dodaj(wykresdane, id)
     {
-        var imieVal = document.getElementById("imie").value;
-        var nazwiskoVal = document.getElementById("nazwisko").value;
-        var kierunekVal = document.getElementById("kierunek").value;
+        var imieVal = document.getElementById("imie").value,
+            nazwiskoVal = document.getElementById("nazwisko").value,
+            kierunekVal = document.getElementById("kierunek").value;
+            
         if((imieVal != "") && (nazwiskoVal != "") && (kierunekVal != ""))
         {
             student.push({imie: imieVal, nazwisko: nazwiskoVal, kierunek: kierunekVal.toLowerCase()})

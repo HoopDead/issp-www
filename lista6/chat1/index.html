@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Chat 1</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    </head>
+
+<body>
+
+    <h2>Pogawędka</h2>
+
+    <form method='post' class='ajax'>
+        <input id='nick' name='nick' placeholder="Podaj imię" autocomplete="off"><br>
+        <input id='text' name='text' style="width:400px" autocomplete="off">
+        <input type=submit name='co'>
+    </form>
+
+    <ul id='chat'></ul>
+    <p>Chat działa w ten sposób, że znajduje się plik submit.php, w którym przetwarane są wartości wysłane za pomocą formularza form w HTML - nick i text   przekazywanie wartości odybwa się za pomocą jquery połączonego z AJAXem - jeżeli odpowiedź serwera będzie równa 200 - czyli wszystko przeszło poprawnie, to wysłane wartości zostaną wyświetlone na stronie. Jeżeli nie, wyskoczy błąd połączenia. Czat aktualizuje się co sekundę, wczytując plik submit.php. Submit.php z kolei, wrzuca wszyskie przekazane wartości do pliku chat.txt</p>
+</body>
+
+<script>
+
+$("#nick").focus();
+
+$("#chat").load("submit.php");
+
+
+setInterval(function(){ $('#chat').load("submit.php"); } ,1000 );
+
+$("form.ajax").on("submit",
+    function(e)
+    {
+        if($('#nick').val()=="") 
+            return false;
+
+        $.post("submit.php", $(this).serializeArray())
+        .done(function(data){
+            $("#chat").html(data);
+            $("#text").val('').focus();
+          })
+        .fail(function()
+         {
+            $("#chat").html("Błąd połączenia");
+        });
+
+        return false;
+    }
+);
+
+</script>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Chat 2</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    </head>
+
+<body>
+
+    <h2>Pogawędka</h2>
+
+    <form method='post' class='ajax'>
+        <input id='nick' name='nick' placeholder="Podaj imię" autocomplete="off"><br>
+        <input id='text' name='text' style="width:400px" autocomplete="off"  >
+        <input type=submit name='co'>
+    </form>
+
+    <ul id='chat'></ul>
+    <p>Samo przekazwanie wartości z formularza do pliku wpisy.php odybwa się dokładnie tak samo, jak w zadaniu 1, różnica jest taka, że tutaj chat wczytuje się natychmiastowo przy wczytaniu strony, nie sekundę po tym, z powodu funkcji reread(), która wywoływana jest przy wczytywaniu. 
+    Wpisy.php działają w ten sposób, że skanowany jest plik z wpisami, zmienna $last wskazuje na ostatni odtworzony wpis. Każdy kolejny jest zapisywany jako kolejny plik o numerze wpisu z rozszerzeniem txt.
+    </p>
+
+</body>
+
+<script>
+
+$("#nick").focus();
+
+function reread()
+{
+    $('#chat').load("wpisy.php"); 
+};
+
+reread();
+
+setInterval(reread ,1000 );
+
+$("form.ajax").on("submit",
+    function(e)
+    {
+        if($('#nick').val()=="") 
+            return false;
+
+        $.post("wpisy.php", $(this).serializeArray())
+        .done(function(data){
+            $("#chat").html(data);
+            $("#text").val('').focus();
+          })
+        .fail(function()
+         {
+            $("#chat").html("Błąd połączenia");
+        });
+
+        return false;
+    }
+);
+
+</script>
+</html>

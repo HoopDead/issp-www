@@ -24,4 +24,10 @@
 <a href="a5.php">Filmiki</a>
 <a href="a6.php">Chat</a>
 <a href="a7.php">Fibbonaci</a>
+<a href="a8.php">Tabliczka mnożenia</a>
+<a href="a9.php">Formularz (zad6)</a>
+<a href="news_add.php">Dodaj newsa</a>
+<a href="news_delete.php">Usuń newsa</a>
+<a href="img_add.php">Dodaj zdjecie</a>
+<a href="img_delete.php">Usun zdjecie</a>
 </div>

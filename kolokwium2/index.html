@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+
+<html lang = "pl">
+<head>
+    <meta charset = "utf-8">
+    <title>Kolokwium 2</title>
+</head>
+
+<body>
+    <p>Pierwszy</p><p>Drugi</p><p>Ostatni</p>
+    <table id = 'liczby'>
+        <tr><td>2</td><td>3</td></tr>
+        <tr><td>4</td><td>4</td></tr>
+    </table>
+    <div id = 'suma'></div>
+    <input id = 'a'>*<input id = 'b'>=<input id = 'c'>
+    <button id = 'akcja'>Kliknij</button>
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+    <script>
+        //1
+        $('p').after("<hr>");
+        //2
+        $('p').prepend("Nieprawda, że...");
+        //3
+        $('p').append(" To ważne.")
+        //4
+        // $('p').click(function() {
+        //     $(this).remove();
+        // });
+        //5
+        // $('p').click(function() {
+        //     $(this).after($(this).html());
+        // });
+        //6
+        $('p:last-of-type').click(function(){
+            $('p:first-of-type').css('background', 'yellow');
+        });
+        //7
+        $('p').click(function() {
+            $('body').append(this);
+        });
+        //8,9
+        $("input").keyup(function() {
+            $('#c').val(Number($('#a').val() * Number($('#b').val())));
+        });
+        //10
+        $('#akcja').click(function() {
+            $('p:first-of-type').before("<h2>Tytuł</h2>");
+        });
+        //11
+        $("table").click(function() {
+            $(this).css('border', '3px solid red');
+        });
+        //12
+        $("#akcja").click(function() {
+            $('p:last-of-type').remove();
+        });
+        //13
+        $("#akcja").click(function() {
+            $("tr").append("<td></td>");
+        });
+        //14
+        $("#akcja").click(function() {
+            $("td").text(0);
+        });
+        //15
+        $("td").click(function() {
+            $("td").text($(this).text());
+        });
+        //16
+        $("td").click(function() {
+            $("td").text(10 + Number($(this).text()));
+        });
+        //17
+        $(document).ready(function(){
+            let suma = 0;
+            $("td").each(function() {
+                suma += Number($(this).text());
+            });
+            $("#suma").html(suma);
+        });
+        //18
+        $("#akcja").click(function() {
+            let a = $("#a").val();
+            let b = $("#b").val();
+            $("#a").val(b);
+            $("#b").val(a);
+        });
+    </script>
+</body>
+</html>

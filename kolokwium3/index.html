@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Kolokwium></title>
+        <script src = "https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    </head>
+    <body>
+        <img src = "img.jpg">
+        <p class = "a">Drag me</p>
+        <p>LOREM IPUSDMPQWDIOQWJDIQWIDJO</p>
+        <ul class = "a">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+        <ul class = "b">
+            <li>Hello</li>
+        </ul>
+        <table>
+            <tr>
+                <td>hello</td>
+            </tr>
+        </table>
+        <script>
+            $(function() {
+                $("p.a").draggable();
+            });
+
+            $(function() {
+                $("img").draggable();
+                $("p").droppable({
+                    drop: function() {
+                        $("img").prependTo(this);
+                    }
+                });
+            });
+
+            $(function() {
+                $("ul.a li").draggable();
+                $("ul.b").droppable({
+                    drop: function(event, ui) {
+                        $(ui.draggable).clone().appendTo(this);
+                    }
+                })
+                
+            });
+
+            $(function() {
+                $("img").draggable();
+                $("table tr td").droppable({
+                    drop: function() {
+                        $("img").css("width", "100px");
+                        $("img").css("height", "100px");
+                        $("img").appendTo(this);
+                    }
+                });
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+        <!-- Google Fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+        <!-- Bootstrap core CSS -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Material Design Bootstrap -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.12.0/css/mdb.min.css" rel="stylesheet">
+        <!-- Own stylesheet -->
+        <link href = "style/main.css">
+    </head>
+    <body>
+        <section id = "main">
+            <div id = "row">
+                <div class = "col-sm-12 text-center mt-5">
+                    <h3>Your Timetable App</h3>
+                </div>
+                <div class = "col-sm-12 text-center mt-5">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addNewEvent">
+                        Add
+                      </button>
+                    <button class = "btn btn-primary" id = "loadJSON">Load</button>
+                </div>
+                <div class = "col-sm-8 text-center mx-auto">
+                    <table class="table table-striped mt-5" id = "tableContent">
+                        <thead>
+                          <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Type</th>
+                          </tr>
+                        </thead>
+                        <tbody id = "tableContentBody">
+                        </tbody>
+                      </table>
+                </div>
+                <div class = "col-sm-12 col-lg-4 mx-auto text-center mt-5">
+  
+                    <!-- Modal -->
+                    <div class="modal fade" id="addNewEvent" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div class="modal-body">
+                                <h5 class="card-header text-center py-4" style = "background-color: #007BFF;">
+                                    <strong class = "text-white">Add new event</strong>
+                                </h5>
+
+                                <!--Card content-->
+                                <div class="card-body px-lg-5 pt-0 mt-4">
+                                        <!-- Date -->
+                                        <div class="md-form mt-0">
+                                            <label>Date</label>
+                                            <input type="date" class="form-control">
+                                        </div>
+        
+                                        <!-- Event -->
+                                        <div class="md-form mt-3">
+                                            <label>Name</label>
+                                            <input type="text"class="form-control">
+                                        </div>
+
+                                        <div class = "md-form mt-3">
+                                            <label>Type</label>
+                                            <input type = "text" class = "form-control">
+                                        </div>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-outline-info btn-rounded waves-effect z-depth-0" id = "addJSON">Add</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- JQuery -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <!-- Bootstrap tooltips -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+        <!-- Bootstrap core JavaScript -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <!-- MDB core JavaScript -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.12.0/js/mdb.min.js"></script>
+        <!-- AJAX -->
+        <script src = "app.js"></script>
+    </body>
+</html>

@@ -1,0 +1,171 @@
+html, body {
+  width: 100%;
+  height: auto;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+  color: white;
+}
+
+html #main, body #main {
+  background-position: center center;
+  background-size: cover;
+  background-image: url("../img/active-adult-athlete-body-416778.jpg");
+}
+
+html #main #main-logo, body #main #main-logo {
+  text-transform: uppercase;
+  border: 1px solid;
+  padding: 5px;
+}
+
+html #main #main-slogan, body #main #main-slogan {
+  margin-top: 30%;
+  color: white;
+}
+
+html .section, body .section {
+  min-height: 100vh;
+}
+
+html .section-050, body .section-050 {
+  min-height: 50vh;
+  width: 100vw;
+  position: relative;
+  background-color: #1e2429;
+}
+
+html .section-050 .opinion-img, body .section-050 .opinion-img {
+  width: 200px;
+}
+
+html #img1, body #img1 {
+  background-position: center center;
+  background-size: cover;
+  background-image: url("/img/woman-girl-silhouette-jogger-40751.jpg");
+  position: relative;
+  height: 70vh;
+}
+
+html #img2, body #img2 {
+  background-position: center center;
+  background-size: cover;
+  background-image: url("/img/person-wearing-black-shorts-and-blue-lace-up-low-top-sneaker-841131.jpg");
+  height: 70vh;
+}
+
+html .section-075, body .section-075 {
+  min-height: 75vh;
+  width: 100vw;
+  position: relative;
+  background-color: #1e2429;
+  color: white;
+}
+
+html .section-075 .card, body .section-075 .card {
+  border: none;
+}
+
+html .section-075 .card-img-right, body .section-075 .card-img-right {
+  min-width: 220px !important;
+  min-height: 220px !important;
+  width: 220px !important;
+  height: 220px !important;
+}
+
+html .section-075 .card-body, body .section-075 .card-body {
+  color: white;
+  background-color: #4287f5 !important;
+}
+
+@media (min-width: 960px) {
+  html .section-100, body .section-100 {
+    min-height: 100vh;
+    width: 100vw;
+    position: absolute;
+    background-color: #1e2429;
+    color: white;
+  }
+  html #desc, body #desc {
+    margin-top: 40%;
+  }
+}
+
+@media (max-width: 960px) {
+  html .section-100, body .section-100 {
+    min-height: 150vh;
+    width: 100vw;
+    position: relative;
+    background-color: #1e2429;
+    color: white;
+  }
+  html .section-100 .human-body svg, body .section-100 .human-body svg {
+    position: absolute;
+    margin-top: 50vh;
+    left: 70%;
+    fill: #57c9d5;
+  }
+}
+
+.human-body {
+  width: 207px;
+  height: 260px;
+  display: block;
+  position: absolute;
+}
+
+.human-body svg:hover {
+  cursor: pointer;
+}
+
+.human-body svg:hover path {
+  fill: #ff7d16;
+}
+
+.human-body svg {
+  position: absolute;
+  margin-top: 25vh;
+  fill: #57c9d5;
+}
+
+.human-body svg.head {
+  margin-left: -28.5px;
+  top: -6px;
+}
+
+.human-body svg.shoulder {
+  margin-left: -53.5px;
+  top: 69px;
+}
+
+.human-body svg.arm {
+  margin-left: -78px;
+  top: 112px;
+}
+
+.human-body svg.cheast {
+  margin-left: -43.5px;
+  top: 88px;
+}
+
+.human-body svg.stomach {
+  margin-left: -37.5px;
+  top: 130px;
+}
+
+.human-body svg.legs {
+  margin-left: -46.5px;
+  top: 205px;
+  z-index: 9999;
+}
+
+.human-body svg.hands {
+  margin-left: -102.5px;
+  top: 224px;
+}
+
+.list-group-item {
+  background-color: #1e2429;
+  border: 1px solid #fff;
+}
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,138 @@
+html
+{
+    overflow-y: hidden;
+}
+
+#game
+{
+    position: absolute;
+    max-width: 1000px;
+    height: 1000px;
+}
+
+.row
+{
+    display: flex;
+}
+
+.spaceblock
+{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background-color: green;
+}
+
+.solidblock_blue
+{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background-color: blue;
+}
+
+.supriseblock
+{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background-color: yellow;
+}
+
+#p1
+{
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    position: absolute;
+    z-index: 1;
+}
+
+#color
+{
+    position: absolute;
+    margin-left: 1100px;
+    width: 200px;
+    height: 200px;
+}
+
+/* Blocks */
+
+.greenblock
+{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background-color: green;
+}
+
+.blueblock
+{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background-color: blue;
+}
+.orangeblock
+{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background-color: orange;
+}
+.chartreuseblock
+{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background-color: chartreuse;
+}
+.redblock
+{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+}
+.aquablock
+{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background-color: aqua;
+}
+.brownblock
+{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background-color: brown;
+}
+.bluevioletblock
+{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background-color: blueviolet;
+}
+.lightslategrayblock
+{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background-color: lightslategray;
+}
+.hotpinkblock
+{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background-color: hotpink;
+}
+.yellowblock
+{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background-color: yellow;
+}

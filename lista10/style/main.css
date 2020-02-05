@@ -1,0 +1,175 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+html, body {
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+  height: auto;
+  font-family: "Roboto", sans-serif !important;
+}
+
+.section1 {
+  background-position: center center;
+  background-size: cover;
+  background-image: url("../img/active-adult-athlete-body-416778.jpg");
+  height: 100vh;
+}
+
+.section1 nav {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.section1 nav a {
+  color: white !important;
+}
+
+.section1 nav button {
+  color: white !important;
+}
+
+.section1 nav .nav-item {
+  margin-right: 75px;
+  margin-top: 50px;
+  font-weight: bold;
+}
+
+.section1 nav .navbar-brand {
+  margin-left: 75px;
+  margin-top: 50px;
+  border: 1px solid white;
+  padding: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.section1 .welcome {
+  top: 50%;
+}
+
+.section1 .welcome #welcome_h1 {
+  margin-left: 200px;
+  color: white;
+}
+
+.section1 .welcome #welcome_h4 {
+  margin-left: 200px;
+  margin-top: 20px;
+  color: #1878c7;
+}
+
+.section {
+  height: 100vh;
+  background-size: cover;
+  background-position: center center;
+  background-color: #21272b;
+}
+
+.section #programs_div {
+  margin-left: 200px;
+}
+
+.section #programs_div #programs_content {
+  position: absolute;
+  margin-top: 150px;
+}
+
+.section #programs_div #programs_content #programs_motivation {
+  margin-top: 30px;
+  color: #1878c7;
+}
+
+.section .programs_card {
+  position: absolute;
+  margin-top: 400px;
+  width: 400px;
+  margin-left: 200px;
+}
+
+.section .programs_card #card1 {
+  position: absolute;
+}
+
+.section .programs_card #card2 {
+  margin-left: 600px;
+  width: 400px;
+  position: absolute;
+}
+
+.section .programs_card #card3 {
+  margin-left: 1200px;
+  width: 400px;
+  position: absolute;
+}
+
+#section-images {
+  height: 50vh;
+}
+
+#section-images #image1 {
+  background-position: center center;
+  background-size: cover;
+  height: 100%;
+  background-image: url("../img/adult-cutting-daylight-facial-expression-1153369.jpg");
+  -webkit-filter: brightness(0.4);
+          filter: brightness(0.4);
+}
+
+#section-images #image2 {
+  background-position: center center;
+  background-size: cover;
+  height: 100%;
+  background-image: url("../img/person-wearing-black-shorts-and-blue-lace-up-low-top-sneaker-841131.jpg");
+  -webkit-filter: brightness(0.4);
+          filter: brightness(0.4);
+}
+
+#trainings #trainings_card1 {
+  position: absolute;
+  margin-top: 100px;
+  margin-left: 200px;
+}
+
+#trainings #trainings_card1 #trainings_image1 {
+  background-position: center center;
+  background-size: cover;
+  width: 300px;
+  height: 200px;
+  background-image: url("../img/three-women-s-doing-exercises-863977.jpg");
+}
+
+#trainings #trainings_card2 {
+  position: absolute;
+  margin-top: 400px;
+  margin-left: 800px;
+}
+
+#trainings #trainings_card2 #trainings_image2 {
+  background-position: center center;
+  background-size: cover;
+  width: 300px;
+  height: 200px;
+  background-image: url("../img/woman-girl-silhouette-jogger-40751.jpg");
+}
+
+#trainings #trainings_card3 {
+  position: absolute;
+  margin-top: 700px;
+  margin-left: 200px;
+}
+
+#trainings #trainings_card3 #trainings_image3 {
+  background-position: center center;
+  background-size: cover;
+  width: 300px;
+  height: 200px;
+  background-image: url("../img/man-working-out-2294361.jpg");
+}
+
+#trainings .trainings_card {
+  width: 600px;
+  height: 200px;
+  background-color: #1878c7;
+}
+/*# sourceMappingURL=main.css.map */

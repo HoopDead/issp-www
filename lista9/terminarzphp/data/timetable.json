@@ -1,0 +1,6 @@
+{
+    "events": [
+        {"id": 0, "name": "Custom name #1", "date": "2020-01-01 19:00", "type": "Meeting"},
+        {"id": 1, "name": "Custom name #2", "date": "2020-01-01 21:00", "type": "Dinner"}
+    ]
+}

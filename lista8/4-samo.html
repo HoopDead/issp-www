@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <style>
+         td {height:50px;width:50px;border:1px solid grey;text-align:center}
+         td:hover{background:#ddd}
+         table {margin:auto;border-collapse:collapse;}
+         h1{text-align:center}
+         td {font-size:35px}
+        .cur{color: red}
+        .ukryj{visibility: hidden;}
+         
+    </style>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+</head>
+
+<body>
+<table>
+<tr><td class="ukryj">X</td><td class="ukryj">x</td><td>O</td><td>O</td><td>O</td><td class="ukryj">x</td><td class="ukryj">x</td></tr>
+<tr><td class="ukryj">x</td><td class="ukryj">x</td><td>O</td><td>O</td><td>O</td><td class="ukryj">x</td><td class="ukryj">x</td></tr>
+<tr><td>O</td><td>O</td><td>O</td><td>O</td><td>O</td><td>O</td><td>O</td></tr>
+<tr><td>O</td><td>O</td><td>O</td> <td></td><td>O</td><td>O</td><td>O</td></tr>
+<tr><td>O</td><td>O</td><td>O</td><td>O</td><td>O</td><td>O</td><td>O</td></tr>
+<tr><td class="ukryj">x</td><td class="ukryj">x</td><td>O</td><td>O</td><td>O</td><td class="ukryj">x</td><td class="ukryj">x</td></tr>
+<tr><td class="ukryj">x</td><td class="ukryj">x</td><td>O</td><td>O</td><td>O</td><td class="ukryj">x</td><td class="ukryj">x</td></tr>
+</table>
+
+<h1 onclick="location=location"></h1>
+    <script>
+        
+        var i,from,where,middle,ile=0;
+        var td=document.body.getElementsByTagName('TD');
+        var h1=document.body.getElementsByTagName('H1');
+
+        for(i in td)
+        {   td[i].nr=i;
+            
+            if(td[i].innerHTML=='O')
+                ile++;
+        }
+        
+        $("td:contains('O')").draggable({
+            drag: function(){
+                $(".cur").removeClass('cur');
+                cur = this;
+                $(this).addClass('cur');
+                from = this.nr;
+            },
+            revert: true,
+            containment: "table"
+        });
+
+       
+        $("td:contains('')").droppable({
+            accept: "td:contains('O')", 
+            drop: function(){
+            $(cur).css({"left": "0px","top": "0px"});
+            $(this).innerHTML = cur;
+       
+                where=this.nr;
+                if(Math.abs(where-from)==2 || Math.abs(where-from)==14)
+                {
+                    middle=(Number(where)+Number(from))/2;
+                    if(td[middle].innerHTML=='O')
+                    {
+                        td[from].style.color='';
+                        td[from].innerHTML='';
+                        td[middle].innerHTML='';
+                        td[where].innerHTML='O';
+                        td[where].style.color='red';
+                        from=where;
+                        ile--;
+                        if(ile>1)
+                            h1[0].innerHTML='Zostało '+ile;
+                        else 
+                        {   
+                            h1[0].innerHTML='Wygrałeś gratuluję';
+                            h1[0].style.color='red';
+                        }
+                    }
+                } 
+            }  
+         });
+         $("td:contains('x')").droppable("disable")
+    </script>
+
+</body>
+</html>

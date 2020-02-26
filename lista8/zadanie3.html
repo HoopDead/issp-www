@@ -1,8 +1,83 @@
-<!DOCTYPE HTML>
-<html lang = "pl">
+<!doctype html>
+<html lang="en">
 <head>
+  <meta charset="utf-8">
+  <title>jQuery UI Droppable - Shopping Cart Demo</title>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <style>
+  #box {width:600px;margin:10px auto;clear:both;}
+  #box>div { 
+	  width: 200px; 
+	  height: 200px; 
+	  float: left; 
+	  box-sizing:border-box ;
+      border:1px solid green;
+      background:#eee
+   }
 
+  #box2 {width:600px;margin:10px auto;clear:both;}
+  #box2>div { 
+	  width: 200px; 
+	  height: 200px; 
+	  float: left; 
+	  box-sizing:border-box ;
+    border:1px solid green;
+    background:#eee
+   }
+   #box2>div.active {background:#ddf}    
+   #box2>div.hover {background:#eff}
+
+   #gra{width: 1300px; height: 600px; margin: auto; display: flex; flex-flow: nowrap;}
+  </style>
+  <script>
+  $(function() {
+    $(" .puzzle").draggable({
+      revert: 'invalid',
+    });
+
+    for(i=0; i < $("#box").children().length; i++)
+    {
+      $("#box").append($("#box").children().splice(Math.floor(Math.random() * $("#box").children().length),1));
+    }
+
+    $( "#box2 >div" ).droppable({
+      activeClass: "active",
+      hoverClass: "hover",
+      accept:function(a){ return $(this).html()=='';},//można położyć tylko jeśli puste pole
+      drop: function( event, ui ) { 
+        $(ui.draggable).detach().css({top:0 ,left:0}).appendTo($(this))//odłącz od boxa przeciągalnego i przyłącz do pustego
+      }
+    });
+  });
+  </script>
 </head>
 <body>
+<div id="gra">
+  <div id="box">
+    <div class="puzzle" style="background-image: url('merci.png'); background-position: 0 0;"></div>
+    <div class="puzzle" style="background-image: url('merci.png'); background-position: 50% 0;"></div>
+    <div class="puzzle" style="background-image: url('merci.png'); background-position: 100% 0;"></div>
+    <div class="puzzle" style="background-image: url('merci.png'); background-position: 0 50%;"></div>
+    <div class="puzzle" style="background-image: url('merci.png'); background-position: 50% 50%;"></div>
+    <div class="puzzle" style="background-image: url('merci.png'); background-position: 100% 50%;"></div>
+    <div class="puzzle" style="background-image: url('merci.png'); background-position: 0 100%;"></div>
+    <div class="puzzle" style="background-image: url('merci.png'); background-position: 50% 100%;"></div>
+    <div class="puzzle" style="background-image: url('merci.png'); background-position: 100% 100%;"></div>
+  </div>
+  <div id="box2">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+
 </body>
 </html>

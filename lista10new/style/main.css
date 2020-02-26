@@ -42,7 +42,7 @@ html .section-050 .opinion-img, body .section-050 .opinion-img {
 html #img1, body #img1 {
   background-position: center center;
   background-size: cover;
-  background-image: url("/img/woman-girl-silhouette-jogger-40751.jpg");
+  background-image: url("../img/woman-girl-silhouette-jogger-40751.jpg");
   position: relative;
   height: 70vh;
 }
@@ -50,7 +50,7 @@ html #img1, body #img1 {
 html #img2, body #img2 {
   background-position: center center;
   background-size: cover;
-  background-image: url("/img/person-wearing-black-shorts-and-blue-lace-up-low-top-sneaker-841131.jpg");
+  background-image: url("../img/person-wearing-black-shorts-and-blue-lace-up-low-top-sneaker-841131.jpg");
   height: 70vh;
 }
 
